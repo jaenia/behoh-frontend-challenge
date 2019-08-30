@@ -43,11 +43,9 @@ export default function FormContainer(props) {
       })
       let newFields = {...fields}
       if(invalids.length > 0){
-        console.log('INV', invalids)
         invalids.forEach(key => {
           newFields[key].isError = true
         })
-        console.log('NEW', newFields)
         setFields(newFields)
       }
   }
