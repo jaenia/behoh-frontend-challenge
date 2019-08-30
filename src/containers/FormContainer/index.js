@@ -8,9 +8,9 @@ import BehohService from '../../services/BehohService';
 export default function FormContainer(props) {
   const [options, setOptions] = useState([])
   const [fields, setFields] = useState({
-    name: {value: null, isError: false},
-    phone: {value: null, isError: false},
-    state: {value: null, isError: false}
+    name: {value: '', isError: false},
+    phone: {value: '', isError: false},
+    state: {value: '', isError: false}
   })
 
   useEffect(() => {
@@ -22,12 +22,38 @@ export default function FormContainer(props) {
   }, [])
 
   function changeHandler(e) {
+    console.log('eaew')
     let field = e.target.name
-    setFields({...fields, [field]: {value: e.target.value, isError: false}})
+    setFields(
+      {
+        ...fields, 
+        [field]: {value: e.target.value, isError: false}
+      }
+    )
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    let invalids = []
+    Object.keys(fields)
+      .forEach(key => { 
+        if(fields[key].value === ''){
+          invalids.push(key)
+        }       
+      })
+      let newFields = {...fields}
+      if(invalids.length > 0){
+        console.log('INV', invalids)
+        invalids.forEach(key => {
+          newFields[key].isError = true
+        })
+        console.log('NEW', newFields)
+        setFields(newFields)
+      }
   }
 
   return (
-    <form className='form-container'>
+    <form onSubmit={handleSubmit} className='form-container'>
       <CustomInput
         placeholder='Digite seu nome completo'
         name='name'
@@ -35,6 +61,7 @@ export default function FormContainer(props) {
         required={true}
         type='text'
         onChange={changeHandler}
+        isError={fields.name.isError}
       />
       <CustomInput
         placeholder='Digite seu celular'
@@ -43,11 +70,16 @@ export default function FormContainer(props) {
         required={true}
         type='text'
         onChange={changeHandler}
+        isError={fields.phone.isError}
       />
       <Select
         placeholder='Selecione o estado'
         options={options}
+        name='state'
+        label='Estado'
+        required={true}
         onChange={changeHandler}
+        isError={fields.state.isError}
       />
       <Button text='Enviar requisição'/>
     </form>

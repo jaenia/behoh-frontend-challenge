@@ -15,7 +15,10 @@ export default function Select(props) {
         </option>
         {props.options.map(element =>
           (
-            <option key={element.label} value={element.value}>
+            <option
+             key={element.label}
+             value={element.value}
+            >
               {element.label}
             </option>
           )  
