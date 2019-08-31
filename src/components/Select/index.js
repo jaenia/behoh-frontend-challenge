@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import select from '../../assets/svg/Select.svg'
 
 export default function Select(props) {
   return (
@@ -10,7 +11,7 @@ export default function Select(props) {
         name={props.name}
         className = {props.isError ? 'invalid' : ''}  
       >
-        <option value='' disabled defaultValue>
+        <option value=''>
           {props.placeholder}
         </option>
         {props.options.map(element =>

@@ -1,0 +1,10 @@
+.tag {
+  display: inline-block;
+  padding: 9px 22px;
+  height: 34px;
+  width: auto;
+  border-radius: 100px;
+  background-color: #C5DEA0;
+  color: #354C63;
+  font-size: 14px;
+}

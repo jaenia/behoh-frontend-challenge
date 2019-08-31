@@ -4,7 +4,7 @@ import './index.css'
 export default function CustomInput(props) {
   return (
     <div className='custom-input'>
-      <label htmlFor={props.name}>{props.label} {props.required ? '*' : ''}</label>
+      <label htmlFor={props.name}>{props.label}{props.required ? '*' : ''}</label>
       <input
         className = {props.isError ? 'invalid' : ''}
         placeholder = {props.placeholder}

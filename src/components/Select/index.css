@@ -1,3 +1,25 @@
-.invalid {
-  border: 1px solid red;
+.custom-select select.invalid {
+  border: 1px solid #FC0D1B;
+}
+
+.custom-select label {
+  color: #354C63;
+  font-weight: bold;
+}
+
+.custom-select select {
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  width: 100%;
+  height: 48px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666; 
+}
+
+
+.custom-select select:active {
+  border: 1px solid #7AB71E;
 }
