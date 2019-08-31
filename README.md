@@ -1,7 +1,7 @@
-# BeHOH Front-end Chanllenge
+# BeHOH Front-end Challenge
 ![Template picture](./template.png)
 A simple form app made with React.
-
+[Live Demo](https://behoh-frontend-chanllenge.herokuapp.com/)
 ## Installation
 
 Clone the repository and run command below to install node dependencies
